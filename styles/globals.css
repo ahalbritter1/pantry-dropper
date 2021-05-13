@@ -6,8 +6,8 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    box-sizing: border-box;
-    text-align: center;
+  box-sizing: border-box;
+  text-align: center;
 }
 
 a {
@@ -19,6 +19,72 @@ a {
   box-sizing: border-box;
 }
 
+#homeText1 {
+  position: relative;
+  left: 700px;
+  font-size: 40px;
+  top: 0px;
+  padding: 20px;
+  width: 400px;
+  animation: homeText 3s;
+}
+
+#homeText2 {
+  position: relative;
+  left: 700px;
+  font-size: 40px;
+  color: rgba(100, 122, 255, 1);
+  top: -10px;
+  padding: 20px;
+  width: 400px;
+  animation: homeText 3s;
+  border: 4px solid darkgrey;
+}
+
+#homeText3 {
+  position: relative;
+  right: 400px;
+  font-size: 50px;
+  top: 150px;
+  padding: 20px;
+  width: 400px;
+  animation: homeText 3s;
+}
+
+#homeText4 {
+  position: relative;
+  right: 400px;
+  font-size: 50px;
+  top: 175px;
+  padding-top: 100px;
+  height: 400px;
+  width: 400px;
+  animation: homeText 3s;
+  border-radius: 50%;
+  border: 4px solid darkgrey;
+  color: rgba(100, 122, 255, 1);
+}
+
+@keyframes homeText {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+#drinkGroup {
+  z-index: -1;
+  position: absolute;
+  left: 35%;
+  top: 72.5%;
+  transform: translate(-50%, -50%);
+}
+
 #clank {
   animation: drinks 2s ease-in-out infinite alternate;
   transform-origin: center;
@@ -26,10 +92,10 @@ a {
 
 @keyframes drinks {
   from {
-    transform: rotateX(0deg)
+    transform: rotateX(0deg);
   }
   to {
-    transform: rotateX(20deg)
+    transform: rotateX(20deg);
   }
 }
 
@@ -44,7 +110,7 @@ a {
   }
   to {
     transform: rotateY(17deg);
-    transform: scale(.9); 
+    transform: scale(0.9);
   }
 }
 
@@ -53,14 +119,13 @@ a {
   top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: fill 0.5s ease forwards 5.0s;
+  animation: fill 0.5s ease forwards 5s;
 }
 
 #logo path:nth-child(1) {
   stroke-dasharray: 299.82;
   stroke-dashoffset: 299.82;
   animation: line-anim 2s ease forwards;
-
 }
 
 #logo path:nth-child(2) {
@@ -112,20 +177,20 @@ a {
 }
 
 #logo path:nth-child(10) {
-  stroke-dasharray: 387.50;
-  stroke-dashoffset: 387.50;
+  stroke-dasharray: 387.5;
+  stroke-dashoffset: 387.5;
   animation: line-anim 2s ease forwards 2.7s;
 }
 
 #logo path:nth-child(11) {
-  stroke-dasharray: 387.50;
-  stroke-dashoffset: 387.50;
-  animation: line-anim 2s ease forwards 3.0s;
+  stroke-dasharray: 387.5;
+  stroke-dashoffset: 387.5;
+  animation: line-anim 2s ease forwards 3s;
 }
 
 #logo path:nth-child(12) {
-  stroke-dasharray: 343.50;
-  stroke-dashoffset: 343.50;
+  stroke-dasharray: 343.5;
+  stroke-dashoffset: 343.5;
   animation: line-anim 2s ease forwards 3.3s;
 }
 
@@ -135,17 +200,51 @@ a {
   animation: line-anim 2s ease forwards 3.6s;
 }
 
-@keyframes line-anim{
+@keyframes line-anim {
   to {
-    stroke-dashoffset: 0
+    stroke-dashoffset: 0;
   }
 }
 
-@keyframes fill{
+@keyframes fill {
   from {
     fill: transparent;
   }
   to {
-    fill: #0070F3;
+    fill: #0070f3;
+  }
+}
+
+#bbqGroup {
+  position: absolute;
+  top: 110%;
+  left: 50%;
+}
+
+#spatula {
+  animation: spatulas 3s infinite alternate;
+  transform-origin: top;
+}
+
+@keyframes spatulas {
+  from {
+    transform: rotateZ(0deg);
+  }
+  to {
+    transform: rotateZ(2deg);
+  }
+}
+
+#steam {
+  animation: steams 2s ease-in-out infinite alternate;
+  transform-origin: bottom;
+}
+
+@keyframes steams {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(15deg);
   }
 }
