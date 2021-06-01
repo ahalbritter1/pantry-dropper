@@ -128,3 +128,8 @@
 	flex-direction: row;
 	margin-left: 50px;
 }
+
+.searchContent {
+	display: flex;
+	flex-direction: column;
+}

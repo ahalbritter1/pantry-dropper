@@ -17,6 +17,9 @@
 .main {
     display: flex;
     flex-direction: row;
+    height: 300px;
+    width: 800px;
+    margin-top: 20px;
 }
 
 .directions {
@@ -26,6 +29,10 @@
 .secondaryContent {
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
     font-size: 15px;
-    width: 600px;
+}
+
+.ingredients {
+    padding-left: 40px;
 }

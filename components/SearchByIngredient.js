@@ -2,11 +2,22 @@ import React from "react";
 import { useState } from "react";
 import DrinkRecipe from "./DrinkRecipe";
 import drinkStyles from "../styles/Drinks.module.css";
+import Pagination from './Pagination'
 
 const SearchByIngredient = () => {
   const [formInput, setFormInput] = useState("");
   const [ingredients, setIngredients] = useState([]);
   const [recipes, setRecipies] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage, setProductsPerPage] = useState(2);
+
+
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = recipes ? recipes.slice(indexOfFirstProduct, indexOfLastProduct): '';
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
 
   const fetchDrinksById = async (id) => {
     console.log(id);
@@ -40,6 +51,7 @@ const SearchByIngredient = () => {
     const joinedString = ingredients.join(',')
     const res = await fetchDrinks(joinedString);
     setRecipies(res);
+    console.log(res);
   };
 
 
@@ -47,6 +59,7 @@ const SearchByIngredient = () => {
     <div className={drinkStyles.content}>
       <div>
         <h2>What ingredients do you have?</h2>
+        <button className={drinkStyles.submitBtn} onClick={handleSubmit}>Submit</button>
 
         <form action="" className={drinkStyles.searchBar} onSubmit={handleAdd}>
           <input
@@ -61,9 +74,15 @@ const SearchByIngredient = () => {
             <span>Search</span>
           </button>
         </form>
-        {recipes.map((recipe) => (
+        <div className={drinkStyles.searchContent}>
+        {recipes[0] ?
+        currentProducts.map((recipe) => (
           <DrinkRecipe key={recipe.idDrink} recipe={recipe[0]} />
-        ))}
+        ))
+        : ''}
+        {recipes[0] ? <Pagination productsPerPage={productsPerPage} totalNumberOfProducts={recipes.length} paginate={paginate}/> : ''}
+        </div>
+        
       </div>
         <div className={drinkStyles.allIngredients}>
       {ingredients.map((i) => (
@@ -71,8 +90,8 @@ const SearchByIngredient = () => {
           <h4>{i}</h4>
         </div>
       ))}
-      <button onClick={handleSubmit}>Submit</button>
       </div>
+      
     </div>
   );
 };
