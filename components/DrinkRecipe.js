@@ -13,6 +13,7 @@ const DrinkRecipe = ({recipe}) => {
             <img className={drinkStyles.imageSize} src={recipe.strDrinkThumb}/>
         </div>
         <div className={drinkStyles.secondaryContent}>
+            <div className={drinkStyles.ingredients}>
             <h3>Ingredients</h3>
             {recipe.strIngredient1 !== null ? <p>{recipe.strIngredient1}  {recipe.strMeasure1}</p>
             : ''}
@@ -44,6 +45,7 @@ const DrinkRecipe = ({recipe}) => {
             : ''}
             {recipe.strIngredient15 !== null ? <p>{recipe.strIngredient15}  {recipe.strMeasure15}</p>
             : ''}
+            </div>
             <div className={drinkStyles.directions}>
             <h3>Directions</h3>
             {drinkRecipe.map((i, idx) => 
